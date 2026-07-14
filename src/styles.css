@@ -1,0 +1,282 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ================================================================
+ * SARTEX — Dark Industrial Denim design system
+ * Deep indigo/anthracite base, glassmorphism cards, neon cyan
+ * accents, textile-inspired warm alerts. All colors in oklch.
+ * ================================================================ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Sartex signature tokens */
+  --color-denim: var(--denim);
+  --color-denim-deep: var(--denim-deep);
+  --color-cyan-neon: var(--cyan-neon);
+  --color-blue-neon: var(--blue-neon);
+  --color-alert: var(--alert);
+  --color-warn: var(--warn);
+  --color-ok: var(--ok);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Deep denim night */
+  --background: oklch(0.14 0.03 260);
+  --foreground: oklch(0.97 0.01 240);
+  --card: oklch(0.19 0.035 262);
+  --card-foreground: oklch(0.97 0.01 240);
+  --popover: oklch(0.17 0.035 262);
+  --popover-foreground: oklch(0.97 0.01 240);
+  --primary: oklch(0.72 0.18 230);
+  --primary-foreground: oklch(0.12 0.03 260);
+  --secondary: oklch(0.28 0.05 260);
+  --secondary-foreground: oklch(0.97 0.01 240);
+  --muted: oklch(0.24 0.03 260);
+  --muted-foreground: oklch(0.72 0.03 250);
+  --accent: oklch(0.78 0.19 200);
+  --accent-foreground: oklch(0.12 0.03 260);
+  --destructive: oklch(0.66 0.24 22);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.32 0.04 260 / 60%);
+  --input: oklch(0.28 0.04 260);
+  --ring: oklch(0.72 0.18 230);
+  --chart-1: oklch(0.78 0.19 200);
+  --chart-2: oklch(0.72 0.18 230);
+  --chart-3: oklch(0.82 0.17 155);
+  --chart-4: oklch(0.75 0.19 55);
+  --chart-5: oklch(0.66 0.24 22);
+  --sidebar: oklch(0.16 0.03 262);
+  --sidebar-foreground: oklch(0.97 0.01 240);
+  --sidebar-primary: oklch(0.72 0.18 230);
+  --sidebar-primary-foreground: oklch(0.12 0.03 260);
+  --sidebar-accent: oklch(0.24 0.04 260);
+  --sidebar-accent-foreground: oklch(0.97 0.01 240);
+  --sidebar-border: oklch(0.32 0.04 260 / 60%);
+  --sidebar-ring: oklch(0.72 0.18 230);
+
+  /* Signature */
+  --denim: oklch(0.42 0.12 260);
+  --denim-deep: oklch(0.22 0.06 262);
+  --cyan-neon: oklch(0.85 0.19 195);
+  --blue-neon: oklch(0.72 0.22 245);
+  --alert: oklch(0.66 0.24 22);
+  --warn: oklch(0.78 0.19 65);
+  --ok: oklch(0.78 0.19 155);
+}
+
+.dark {
+  /* Same palette — the app is dark-only. */
+  --background: oklch(0.14 0.03 260);
+  --foreground: oklch(0.97 0.01 240);
+  --card: oklch(0.19 0.035 262);
+  --card-foreground: oklch(0.97 0.01 240);
+  --popover: oklch(0.17 0.035 262);
+  --popover-foreground: oklch(0.97 0.01 240);
+  --primary: oklch(0.72 0.18 230);
+  --primary-foreground: oklch(0.12 0.03 260);
+  --secondary: oklch(0.28 0.05 260);
+  --secondary-foreground: oklch(0.97 0.01 240);
+  --muted: oklch(0.24 0.03 260);
+  --muted-foreground: oklch(0.72 0.03 250);
+  --accent: oklch(0.78 0.19 200);
+  --accent-foreground: oklch(0.12 0.03 260);
+  --destructive: oklch(0.66 0.24 22);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.32 0.04 260 / 60%);
+  --input: oklch(0.28 0.04 260);
+  --ring: oklch(0.72 0.18 230);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html,
+  body {
+    background: radial-gradient(
+        ellipse at 20% 0%,
+        oklch(0.22 0.08 245 / 0.55) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse at 90% 100%,
+        oklch(0.28 0.12 200 / 0.35) 0%,
+        transparent 55%
+      ),
+      var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+  }
+  body {
+    font-family:
+      "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ---------- Utilities ---------- */
+
+@utility glass {
+  background: linear-gradient(
+    140deg,
+    oklch(1 0 0 / 0.06) 0%,
+    oklch(1 0 0 / 0.02) 100%
+  );
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid oklch(1 0 0 / 0.08);
+  box-shadow:
+    0 1px 0 0 oklch(1 0 0 / 0.06) inset,
+    0 24px 64px -32px oklch(0 0 0 / 0.6);
+}
+
+@utility glass-strong {
+  background: linear-gradient(
+    140deg,
+    oklch(1 0 0 / 0.09) 0%,
+    oklch(1 0 0 / 0.03) 100%
+  );
+  backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid oklch(1 0 0 / 0.1);
+  box-shadow:
+    0 1px 0 0 oklch(1 0 0 / 0.08) inset,
+    0 32px 80px -32px oklch(0 0 0 / 0.65);
+}
+
+@utility glow-cyan {
+  box-shadow:
+    0 0 0 1px oklch(0.85 0.19 195 / 0.35),
+    0 0 24px -4px oklch(0.85 0.19 195 / 0.55),
+    0 0 60px -12px oklch(0.85 0.19 195 / 0.35);
+}
+
+@utility glow-blue {
+  box-shadow:
+    0 0 0 1px oklch(0.72 0.22 245 / 0.35),
+    0 0 24px -4px oklch(0.72 0.22 245 / 0.55);
+}
+
+@utility glow-alert {
+  box-shadow:
+    0 0 0 1px oklch(0.66 0.24 22 / 0.5),
+    0 0 32px -4px oklch(0.66 0.24 22 / 0.6);
+}
+
+@utility text-gradient-cyan {
+  background: linear-gradient(
+    120deg,
+    oklch(0.85 0.19 195) 0%,
+    oklch(0.72 0.22 245) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility grid-industrial {
+  background-image:
+    linear-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(1 0 0 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+@utility card-industrial {
+  background: linear-gradient(
+    160deg,
+    oklch(0.22 0.05 262 / 0.75),
+    oklch(0.16 0.035 262 / 0.85)
+  );
+  backdrop-filter: blur(14px);
+  border: 1px solid oklch(1 0 0 / 0.08);
+  border-radius: 1rem;
+  box-shadow:
+    0 1px 0 0 oklch(1 0 0 / 0.06) inset,
+    0 24px 60px -32px oklch(0 0 0 / 0.7);
+}
+
+/* Keyframes */
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 oklch(0.85 0.19 195 / 0.5),
+      0 0 24px -4px oklch(0.85 0.19 195 / 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px oklch(0.85 0.19 195 / 0),
+      0 0 42px -4px oklch(0.85 0.19 195 / 0.65);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes ticker {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+@utility live-dot {
+  animation: pulseGlow 1.8s ease-in-out infinite;
+}
+
+@utility ticker-dot {
+  animation: ticker 1.4s ease-in-out infinite;
+}
