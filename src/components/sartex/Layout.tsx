@@ -1,9 +1,10 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Activity, Brain, Database, Radio, Wifi, WifiOff } from "lucide-react";
-import type { ReactNode } from "react";
+import { Activity, Brain, Database, Radio, Wifi, WifiOff, Sun, Moon } from "lucide-react";
+import { useState, useEffect, type ReactNode } from "react";
 import { SartexLogo } from "./SartexLogo";
 import type { Mode } from "@/lib/sartex/simulator";
+import { useTheme } from "../ThemeProvider";
 
 const NAV = [
   { to: "/", label: "Monitoring", icon: Activity },
@@ -78,6 +79,7 @@ export function AppShell({
               <span className="tracking-widest text-muted-foreground">PLC</span>
               <span className="font-mono">DVP-32EH</span>
             </div>
+            <ThemeToggle />
             <ModeToggle mode={mode} onChange={onToggleMode} />
           </div>
         </div>
@@ -138,6 +140,29 @@ function ModeToggle({ mode, onChange }: { mode: Mode; onChange: (m: Mode) => voi
           </>
         )}
       </span>
+    </button>
+  );
+}
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="h-9 w-9 rounded-full border border-white/10 bg-white/5" />;
+  }
+
+  return (
+    <button
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground"
+      aria-label="Toggle theme"
+    >
+      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>
   );
 }

@@ -128,7 +128,7 @@ export function useSocket(): UseSocketResult {
 
   // Handle mode changes
   useEffect(() => {
-    fetch(`${SOCKET_URL}/api/simulator/${mode === 'simulation' ? 'start' : 'stop'}`, { method: 'POST' }).catch(console.error);
+    fetch(`${SOCKET_URL}/api/mode/${mode}`, { method: 'POST' }).catch(console.error);
   }, [mode]);
 
   return { socket, isConnected, activeProducts, latestEvent, history, mode, setMode, targets, setTargets };

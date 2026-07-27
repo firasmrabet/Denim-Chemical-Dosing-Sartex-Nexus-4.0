@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
+import { ThemeProvider } from "../components/ThemeProvider";
 
 function NotFoundComponent() {
   return (
@@ -100,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="fr" className="dark">
+    <html lang="fr" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
@@ -116,19 +117,10 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
-      <Toaster
-        theme="dark"
-        position="top-right"
-        toastOptions={{
-          style: {
-            background: "rgba(20,20,40,0.85)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            backdropFilter: "blur(16px)",
-            color: "white",
-          },
-        }}
-      />
+      <ThemeProvider defaultTheme="dark" storageKey="sartex-ui-theme">
+        <Outlet />
+        <Toaster position="top-right" />
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

@@ -65,6 +65,51 @@
 :root {
   --radius: 0.875rem;
 
+  /* Clean light theme */
+  --background: oklch(0.98 0.01 240);
+  --foreground: oklch(0.14 0.03 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.14 0.03 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.14 0.03 260);
+  --primary: oklch(0.22 0.06 262);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.96 0.01 240);
+  --secondary-foreground: oklch(0.14 0.03 260);
+  --muted: oklch(0.96 0.01 240);
+  --muted-foreground: oklch(0.45 0.02 250);
+  --accent: oklch(0.96 0.01 240);
+  --accent-foreground: oklch(0.14 0.03 260);
+  --destructive: oklch(0.66 0.24 22);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.90 0.01 240);
+  --input: oklch(0.90 0.01 240);
+  --ring: oklch(0.22 0.06 262);
+  --chart-1: oklch(0.5 0.15 200);
+  --chart-2: oklch(0.4 0.15 230);
+  --chart-3: oklch(0.55 0.15 155);
+  --chart-4: oklch(0.6 0.15 55);
+  --chart-5: oklch(0.6 0.2 22);
+  --sidebar: oklch(0.98 0.01 240);
+  --sidebar-foreground: oklch(0.14 0.03 260);
+  --sidebar-primary: oklch(0.22 0.06 262);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.96 0.01 240);
+  --sidebar-accent-foreground: oklch(0.14 0.03 260);
+  --sidebar-border: oklch(0.90 0.01 240);
+  --sidebar-ring: oklch(0.22 0.06 262);
+
+  /* Signature - Adapted for light mode */
+  --denim: oklch(0.65 0.12 260);
+  --denim-deep: oklch(0.35 0.08 262);
+  --cyan-neon: oklch(0.6 0.15 195);
+  --blue-neon: oklch(0.5 0.18 245);
+  --alert: oklch(0.6 0.2 22);
+  --warn: oklch(0.7 0.18 65);
+  --ok: oklch(0.6 0.18 155);
+}
+
+.dark {
   /* Deep denim night */
   --background: oklch(0.14 0.03 260);
   --foreground: oklch(0.97 0.01 240);
@@ -109,35 +154,17 @@
   --ok: oklch(0.78 0.19 155);
 }
 
-.dark {
-  /* Same palette — the app is dark-only. */
-  --background: oklch(0.14 0.03 260);
-  --foreground: oklch(0.97 0.01 240);
-  --card: oklch(0.19 0.035 262);
-  --card-foreground: oklch(0.97 0.01 240);
-  --popover: oklch(0.17 0.035 262);
-  --popover-foreground: oklch(0.97 0.01 240);
-  --primary: oklch(0.72 0.18 230);
-  --primary-foreground: oklch(0.12 0.03 260);
-  --secondary: oklch(0.28 0.05 260);
-  --secondary-foreground: oklch(0.97 0.01 240);
-  --muted: oklch(0.24 0.03 260);
-  --muted-foreground: oklch(0.72 0.03 250);
-  --accent: oklch(0.78 0.19 200);
-  --accent-foreground: oklch(0.12 0.03 260);
-  --destructive: oklch(0.66 0.24 22);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.32 0.04 260 / 60%);
-  --input: oklch(0.28 0.04 260);
-  --ring: oklch(0.72 0.18 230);
-}
-
 @layer base {
   * {
     border-color: var(--color-border);
   }
   html,
   body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+  }
+  .dark body {
     background: radial-gradient(
         ellipse at 20% 0%,
         oklch(0.22 0.08 245 / 0.55) 0%,
@@ -149,8 +176,6 @@
         transparent 55%
       ),
       var(--color-background);
-    color: var(--color-foreground);
-    min-height: 100vh;
   }
   body {
     font-family:
@@ -230,6 +255,13 @@
 }
 
 @utility card-industrial {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.dark .card-industrial {
   background: linear-gradient(
     160deg,
     oklch(0.22 0.05 262 / 0.75),
@@ -237,7 +269,6 @@
   );
   backdrop-filter: blur(14px);
   border: 1px solid oklch(1 0 0 / 0.08);
-  border-radius: 1rem;
   box-shadow:
     0 1px 0 0 oklch(1 0 0 / 0.06) inset,
     0 24px 60px -32px oklch(0 0 0 / 0.7);

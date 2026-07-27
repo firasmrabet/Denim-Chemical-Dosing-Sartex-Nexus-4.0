@@ -13,7 +13,9 @@
   "dependencies": {
     "better-sqlite3": "^12.11.1",
     "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "modbus-serial": "^8.0.25",
     "regression": "^2.0.1",
     "simple-statistics": "^7.9.3",
     "socket.io": "^4.8.3"

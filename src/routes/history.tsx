@@ -156,11 +156,11 @@ function HistoryPage() {
             setProductFilter(e.target.value as ProductId | "all");
             setPage(1);
           }}
-          className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white outline-none focus:border-[color:var(--color-cyan-neon)]/60"
+          className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground outline-none focus:border-[color:var(--color-cyan-neon)]/60"
         >
-          <option value="all" className="bg-slate-900 text-white">Tous les produits</option>
+          <option value="all" className="bg-card text-foreground">Tous les produits</option>
           {PRODUCTS.map((p) => (
-            <option key={p.id} value={p.id} className="bg-slate-900 text-white">
+            <option key={p.id} value={p.id} className="bg-card text-foreground">
               {p.name}
             </option>
           ))}
@@ -171,19 +171,19 @@ function HistoryPage() {
             setDays(Number(e.target.value));
             setPage(1);
           }}
-          className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white outline-none focus:border-[color:var(--color-cyan-neon)]/60"
+          className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground outline-none focus:border-[color:var(--color-cyan-neon)]/60"
         >
-          <option value={1} className="bg-slate-900 text-white">Dernières 24h</option>
-          <option value={3} className="bg-slate-900 text-white">3 jours</option>
-          <option value={7} className="bg-slate-900 text-white">7 jours</option>
-          <option value={14} className="bg-slate-900 text-white">14 jours</option>
+          <option value={1} className="bg-card text-foreground">Dernières 24h</option>
+          <option value={3} className="bg-card text-foreground">3 jours</option>
+          <option value={7} className="bg-card text-foreground">7 jours</option>
+          <option value={14} className="bg-card text-foreground">14 jours</option>
         </select>
         <div className="ml-auto flex items-center gap-2">
           <motion.button
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.97 }}
             onClick={exportCsv}
-            className="inline-flex items-center gap-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 px-4 py-2 text-sm font-semibold text-white transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 px-4 py-2 text-sm font-semibold text-foreground transition-colors"
           >
             <Download className="h-4 w-4" />
             CSV
@@ -205,7 +205,7 @@ function HistoryPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="border-b border-white/10 bg-white/[0.03]">
-              <tr className="text-left text-xs uppercase tracking-widest text-white/70">
+              <tr className="text-left text-xs uppercase tracking-widest text-muted-foreground">
                 <th className="px-4 py-3">Batch</th>
                 <th className="px-4 py-3">Produit</th>
                 <th className="px-4 py-3">PLC</th>
@@ -239,7 +239,7 @@ function HistoryPage() {
                         <span className="font-semibold">{p.name}</span>
                       </div>
                     </td>
-                    <td className="px-4 py-3 font-mono text-xs text-white/80">
+                    <td className="px-4 py-3 font-mono text-xs text-muted-foreground">
                       {p.plcBit} · {p.plcSrc}→{p.plcDst}
                     </td>
                     <td className="px-4 py-3 text-right font-mono">
@@ -261,7 +261,7 @@ function HistoryPage() {
                       {delta.toFixed(2)}
                     </td>
                     <td className="px-4 py-3 text-right font-mono">{e.duration.toFixed(1)}s</td>
-                    <td className="px-4 py-3 font-mono text-xs text-white/80">
+                    <td className="px-4 py-3 font-mono text-xs text-muted-foreground">
                       {new Date(e.timestamp).toLocaleString("fr-FR", { hour12: false })}
                     </td>
                     <td className="px-4 py-3 text-right">

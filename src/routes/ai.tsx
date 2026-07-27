@@ -209,7 +209,7 @@ function AiPage() {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          className="card-industrial p-5"
+          className="card-industrial flex flex-col p-5"
         >
           <div className="mb-4 flex items-center justify-between">
             <div>
@@ -222,15 +222,15 @@ function AiPage() {
             </div>
             <TrendingDown className="h-5 w-5 text-[color:var(--color-warn)]" />
           </div>
-          <div className="h-[320px]">
-            <ResponsiveContainer>
+          <div className="flex-1 min-h-[350px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
               <LineChart data={driftData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
                 <XAxis
                   dataKey="t"
                   stroke="rgba(255,255,255,0.4)"
                   tick={{ fontSize: 11 }}
-                  domain={[-7, 0]}
+                  domain={['dataMin', 0]}
                   type="number"
                   label={{
                     value: "jours (0 = adj)",
@@ -326,7 +326,7 @@ function AiPage() {
                       }}
                     />
                   </div>
-                  <div className="mt-1 flex justify-between text-xs text-white/80">
+                  <div className="mt-1 flex justify-between text-xs text-muted-foreground">
                     <span>durée actuelle {h.currentDuration.toFixed(1)}s</span>
                     <span>
                       {h.predictedFailureAt
@@ -460,9 +460,9 @@ function AiPage() {
                             +{i.overshootPct.toFixed(1)}% surdosage
                           </span>
                         </div>
-                        <div className="mt-2 text-white/90">
+                        <div className="mt-2 text-foreground">
                           Réduire la cible de{" "}
-                          <span className="font-bold text-white">
+                          <span className="font-bold text-foreground">
                             ~{(i.overshootPct * 0.8).toFixed(1)}%
                           </span>{" "}
                           économiserait{" "}

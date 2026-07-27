@@ -93,7 +93,7 @@ function MonitoringPage() {
           >
             <span className={`live-dot inline-flex h-2 w-2 rounded-full ${isConnected ? "bg-[color:var(--color-cyan-neon)]" : "bg-destructive"}`} />
             <span>{isConnected ? "Live · Ksar Hellal · Ligne Denim #3" : "Hors Ligne"}</span>
-            <span className="text-white/30">/</span>
+            <span className="text-muted-foreground/30">/</span>
             <span className="font-mono min-w-[150px] inline-block">
               {nowStr}
             </span>
@@ -399,19 +399,19 @@ function MonitoringPage() {
                     />
                     <div className="min-w-0 flex-1 py-0.5">
                       <div className="flex items-center justify-between font-mono text-sm">
-                        <span className="truncate font-bold text-white/90">{p.name}</span>
-                        <span className="text-white/80">
+                        <span className="truncate font-bold text-foreground">{p.name}</span>
+                        <span className="text-muted-foreground">
                           {new Date(e.timestamp).toLocaleTimeString("fr-FR", {
                             hour12: false,
                           })}
                         </span>
                       </div>
-                      <div className="mt-1 flex items-center justify-between text-xs text-white/70">
-                        <span className="font-semibold text-white/80">
+                      <div className="mt-1 flex items-center justify-between text-xs text-muted-foreground">
+                        <span className="font-semibold text-foreground/80">
                           {p.plcBit} → {p.plcDst}
                         </span>
                         <span
-                          className={e.anomaly ? "font-bold text-destructive" : "font-semibold text-white/90"}
+                          className={e.anomaly ? "font-bold text-destructive" : "font-semibold text-foreground"}
                         >
                           {e.volume.toFixed(1)} L · {e.duration.toFixed(0)}s
                         </span>

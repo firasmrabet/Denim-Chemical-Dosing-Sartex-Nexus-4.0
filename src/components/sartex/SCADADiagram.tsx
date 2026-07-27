@@ -43,10 +43,10 @@ export function SCADADiagram({ activeProducts, latest }: Props) {
                     isActive ? "bg-green-500 shadow-[0_0_10px_#22c55e]" : "bg-red-900/50"
                   }`}
                 />
-                <span className={`mt-1 text-xs font-bold ${isActive ? "text-white" : "text-white/70"}`}>
+                <span className={`mt-1 text-xs font-bold ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                   {p.plcBit}
                 </span>
-                <span className="max-w-[50px] truncate text-center text-[10px] font-semibold text-white/90 uppercase leading-tight">
+                <span className="max-w-[50px] truncate text-center text-[10px] font-semibold text-foreground uppercase leading-tight">
                   {p.name}
                 </span>
               </div>
@@ -187,7 +187,7 @@ export function SCADADiagram({ activeProducts, latest }: Props) {
         </div>
 
         {/* Overlay d'informations */}
-        <div className="absolute bottom-3 left-3 text-[11px] font-bold uppercase tracking-widest text-white/70">
+        <div className="absolute bottom-3 left-3 text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
           MIXER T-01
         </div>
         {latest && (

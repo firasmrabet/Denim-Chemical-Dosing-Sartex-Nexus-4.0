@@ -10,6 +10,7 @@
  * ============================================================
  */
 
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -58,19 +59,14 @@ io.on('connection', (socket) => {
 });
 
 // Écouter les événements du simulateur (ou Modbus) et les relayer via WebSocket
-simulator.on('dosage:start', (data) => {
-  io.emit('dosage:start', data);
-});
+const setupListeners = (source) => {
+  source.on('dosage:start', (data) => io.emit('dosage:start', data));
+  source.on('dosage:update', (updates) => io.emit('dosage:update', updates));
+  source.on('products:state', (states) => io.emit('products:state', states));
+  source.on('dosage:complete', handleDosageComplete);
+};
 
-simulator.on('dosage:update', (updates) => {
-  io.emit('dosage:update', updates);
-});
-
-simulator.on('products:state', (states) => {
-  io.emit('products:state', states);
-});
-
-simulator.on('dosage:complete', (data) => {
+const handleDosageComplete = (data) => {
   // 1. Détecter les anomalies via l'IA
   const anomaly = ai.detectAnomaly(data.productId, data.actualVolume);
   
@@ -119,7 +115,9 @@ simulator.on('dosage:complete', (data) => {
 
   // 5. Notifier le frontend que le dosage est terminé et sauvegardé
   io.emit('dosage:complete', { ...data, id: dosageId, isAnomaly, healthScore: health.healthScore });
-});
+};
+
+setupListeners(simulator);
 
 
 // ==========================================
@@ -161,17 +159,41 @@ app.get('/api/ai/analysis', (req, res) => {
   }
 });
 
-// Contrôler le simulateur (Démarrer/Arrêter)
-app.post('/api/simulator/:action', (req, res) => {
-  const { action } = req.params;
-  if (action === 'start') {
-    simulator.start();
-    res.json({ status: 'running' });
-  } else if (action === 'stop') {
+// Contrôler le mode de fonctionnement (Simulation ou Live PLC)
+app.post('/api/mode/:mode', async (req, res) => {
+  const { mode } = req.params;
+  
+  if (mode === 'live' || mode === 'real') {
     simulator.stop();
-    res.json({ status: 'stopped' });
-  } else {
-    res.status(400).json({ error: 'Action invalide' });
+    
+    if (!modbusClient) {
+      const modeConnexion = process.env.CONNECTION_MODE || "RTU";
+      const portSerie = process.env.PORT_SERIE || "COM3";
+      const baudRate = parseInt(process.env.BAUD_RATE || "9600", 10);
+      const useTCP = modeConnexion === "TCP";
+      const hmiIp = process.env.HMI_IP || "192.168.1.50";
+      const modbusPort = parseInt(process.env.MODBUS_PORT || "502", 10);
+
+      modbusClient = new ModbusClient(portSerie, baudRate, useTCP, hmiIp, modbusPort);
+      setupListeners(modbusClient);
+    }
+    
+    const success = await modbusClient.connect();
+    if (success) {
+      res.json({ status: 'live_plc', message: 'Connecté au PLC Delta DVP' });
+    } else {
+      res.status(500).json({ error: 'Impossible de se connecter au PLC' });
+    }
+  } 
+  else if (mode === 'simulation') {
+    if (modbusClient) {
+      modbusClient.stop();
+    }
+    simulator.start();
+    res.json({ status: 'simulation', message: 'Simulateur redémarré' });
+  } 
+  else {
+    res.status(400).json({ error: 'Mode invalide' });
   }
 });
 
