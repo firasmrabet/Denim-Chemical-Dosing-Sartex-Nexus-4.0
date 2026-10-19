@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-label="Sartex Nexus 4.0 — INDUSTRIAL AUTOMATION">
+  <title>Sartex Nexus 4.0 — INDUSTRIAL AUTOMATION</title>
+  <defs>
+    <linearGradient id="bg-sartex" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#060A12"/>
+      <stop offset="0.55" stop-color="#091524"/>
+      <stop offset="1" stop-color="#0B1F33"/>
+    </linearGradient>
+    <radialGradient id="glow-sartex" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FB7185" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FB7185" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade-sartex" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#060A12" stop-opacity="0.92"/>
+      <stop offset="0.52" stop-color="#070D18" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#070D18" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rule-sartex" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FB7185" stop-opacity="0.95"/>
+      <stop offset="0.35" stop-color="#FB7185" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#FB7185" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="dots-sartex" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.1" fill="#2A4766" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="280" fill="url(#bg-sartex)"/>
+  <rect width="1200" height="280" fill="url(#dots-sartex)"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="278.5" rx="14" fill="none" stroke="#1B3350"/>
+  <rect x="0" y="0" width="1200" height="280" fill="url(#fade-sartex)"/>
+  <rect x="18" y="0.75" width="330" height="2.4" rx="1.2" fill="url(#rule-sartex)"/>
+
+  <g transform="translate(600,18) scale(0.88) translate(0,0)">
+      <g>
+<circle cx="470" cy="140" r="145" fill="#FB7185" opacity="0.06"/>
+<rect x="348" y="96" width="66" height="112" rx="10" fill="#FB7185" fill-opacity="0.10" stroke="#FB7185" stroke-opacity="0.7" stroke-width="1.5"/>
+<rect x="354" y="140" width="54" height="62" rx="6" fill="#FB7185" fill-opacity="0.45">
+          <animate attributeName="y" values="150;128;150" dur="7s" repeatCount="indefinite"/>
+          <animate attributeName="height" values="52;74;52" dur="7s" repeatCount="indefinite"/>
+        </rect>
+<path d="M366 96 v-16 h30 v16" stroke="#FB7185" stroke-opacity="0.7" stroke-width="1.5" fill="none"/>
+<rect x="448" y="96" width="66" height="112" rx="10" fill="#FB7185" fill-opacity="0.10" stroke="#FB7185" stroke-opacity="0.7" stroke-width="1.5"/>
+<rect x="454" y="140" width="54" height="62" rx="6" fill="#FB7185" fill-opacity="0.45">
+          <animate attributeName="y" values="150;128;150" dur="7s" repeatCount="indefinite"/>
+          <animate attributeName="height" values="52;74;52" dur="7s" repeatCount="indefinite"/>
+        </rect>
+<path d="M466 96 v-16 h30 v16" stroke="#FB7185" stroke-opacity="0.7" stroke-width="1.5" fill="none"/>
+<path d="M414 118 H448" stroke="#FB7185" stroke-opacity="0.55" stroke-width="2"/>
+<g transform="translate(556,140)">
+      <path d="M-34 30 A34 34 0 1 1 34 30" fill="none" stroke="#1B3350" stroke-width="7" stroke-linecap="round"/>
+      <path d="M-34 30 A34 34 0 1 1 34 30" fill="none" stroke="#FB7185" stroke-width="7" stroke-linecap="round" stroke-opacity="0.85" stroke-dasharray="150" stroke-dashoffset="42"/>
+      <path d="M0 0 L20 -20" stroke="#E7EEF7" stroke-width="2.6" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate" values="-45;45;-45" dur="6s" repeatCount="indefinite"/>
+      </path>
+      <circle r="4.2" fill="#E7EEF7"/>
+      <text y="52" text-anchor="middle" font-family="'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="8.5" fill="#FB7185" opacity="0.8">P · T · FLOW</text>
+    </g>
+<path d="M318 208 H604" stroke="#FB7185" stroke-opacity="0.3" stroke-width="1.4"/>
+  </g>
+  </g>
+
+  <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="56" y="86" font-size="11.5" font-weight="700" letter-spacing="2.6" fill="#FB7185">INDUSTRIAL AUTOMATION</text>
+    <text x="56" y="140" font-size="46" font-weight="800" letter-spacing="-0.6" fill="#F5F9FF">Sartex Nexus 4.0</text>
+    <text x="56" y="172" font-size="15.5" font-weight="450" fill="#8FAFCB">Superviseur SCADA d'une ligne de dosage chimique — Delta PLC, Modbus, IA embarquée.</text>
+  </g>
+  <rect x="56" y="206" width="128" height="30" rx="8" fill="#0B1727" stroke="#24405F"/>
+  <text x="120" y="226" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.6" fill="#9FC0DE">React · Node.js</text>
+  <rect x="194" y="206" width="93" height="30" rx="8" fill="#0B1727" stroke="#24405F"/>
+  <text x="241" y="226" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.6" fill="#9FC0DE">Modbus RTU</text>
+  <rect x="298" y="206" width="121" height="30" rx="8" fill="#0B1727" stroke="#24405F"/>
+  <text x="358" y="226" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.6" fill="#9FC0DE">Python · Flask</text>
+  <text x="56" y="256" font-family="'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" letter-spacing="0.8" fill="#4A6584">github.com/firasmrabet/Denim-Chemical-Dosing-Sartex-Nexus-4.0</text>
+  <text x="1168" y="256" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" letter-spacing="1.4" fill="#4A6584">ENISo · 2026</text>
+</svg>
