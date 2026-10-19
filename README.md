@@ -30,8 +30,6 @@ en temps réel, contrôle manuel/automatique, et un moteur d'IA pour la détecti
 
 ## 📸 Captures
 
-> Remplace les deux emplacements ci-dessous par tes captures (`docs/screenshots/01-supervision.png`), puis mets à jour les chemins.
-
 <p align="center">
   <img src="docs/screenshots/PLACEHOLDER-01-supervision.svg" width="49%" alt="Vue de supervision"/>
   <img src="docs/screenshots/PLACEHOLDER-02-controle-dosage.svg" width="49%" alt="Contrôle du dosage"/>
